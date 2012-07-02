@@ -61,14 +61,14 @@ button,
 
 	&.tiny
 	{
-		padding: 2px 6px;
+		padding: 3px 6px 1px 6px;
 		font-size: $baseFontSize - 3px;
 		line-height: $baseLineHeight - 4px;
 	}
 
 	&.small
 	{
-		padding: 3px 9px;
+		padding: 4px 9px 2px 9px;
 		font-size: $baseFontSize - 2px;
 		line-height: $baseLineHeight - 2px;
 
@@ -84,6 +84,15 @@ button,
 		font-size: $baseFontSize + 2px;
 		line-height: normal;
 		@include border-radius(5px);
+	}
+
+	&.pill
+	{
+		&,
+		&.large
+		{
+			border-radius: 20px;
+		}
 	}
 
 
@@ -109,19 +118,19 @@ button,
 
 	&.primary
 	{
-		border-color: #3e7dc5;
-		@include gradient-vertical(#71b4fc, #0e7bfc);
+		border-color: #3f80af;
+		@include gradient-vertical(#4da2e5, #3079d0);
 
 		&:hover
 		{
-			@include gradient-vertical(#71b4fc, #0372f6);
+			@include gradient-vertical(#4da2e5, #215cc4);
 		}
 
 		&:active,
 		&.active
 		{
 			border-color: #2c5c93;
-			@include gradient-vertical(#025bc4, #0e7bfc);
+			@include gradient-vertical(#2768b6, #3079d0);
 		}
 	}
 

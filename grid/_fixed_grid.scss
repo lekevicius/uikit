@@ -1,5 +1,3 @@
-$gridRowWidth: ($gridColumns * $gridColumnWidth) + ($gridGutterWidth * ($gridColumns - 1));
-
 @mixin fixed-container()
 {
 	width: $gridRowWidth;

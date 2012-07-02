@@ -1,6 +1,7 @@
 .button-group
 {
 	position: relative;
+	display: inline-block;
 	@include clearfix(); // clears the floated buttons
 	@include ie7-restore-left-whitespace();
 
@@ -115,6 +116,21 @@
 		.caret
 		{
 			@include opacity(100);
+		}
+	}
+
+	&.radio
+	{
+		.button
+		{
+			&:active,
+			&.active
+			{
+				@include gradient-vertical(#838383, #b5b5b5);
+				color: #fff;
+				text-shadow: 0 -1px 0 #5c5c5c;
+				border-color: #555;
+			}
 		}
 	}
 }

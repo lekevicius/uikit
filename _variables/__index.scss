@@ -30,6 +30,7 @@ $zindexModal:           1050 !default;
 $gridColumns:             12 !default;
 $gridColumnWidth:         50px !default;
 $gridGutterWidth:         30px !default;
+$gridRowWidth: ($gridColumns * $gridColumnWidth) + ($gridGutterWidth * ($gridColumns - 1));
 
 // Fluid grid
 $fluidGridColumns:              $gridColumns !default;

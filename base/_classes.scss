@@ -3,6 +3,14 @@
 	@include clearfix();
 }
 
+.wrap
+{
+	width: $gridRowWidth;
+	margin-left: auto;
+	margin-right: auto;
+	@include clearfix();
+}
+
 .left
 {
 	float: left;

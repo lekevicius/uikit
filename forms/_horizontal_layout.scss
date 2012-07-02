@@ -6,7 +6,8 @@ $inputWidth: ($gridColumnWidth * $inputWidthColumns) + ($gridGutterWidth * ($inp
 
 form.horizontal
 {
-	.field
+	.field,
+	.input
 	{
 		margin-bottom: $baseLineHeight;
 		@include clearfix();
