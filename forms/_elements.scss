@@ -1,0 +1,210 @@
+form
+{
+	margin: 0;
+
+	fieldset
+	{
+		padding: 0;
+		margin: 0;
+		border: 0;
+
+		legend
+		{
+			display: block;
+			width: 100%;
+			padding: 0;
+			margin-bottom: $baseLineHeight * 1.5;
+			font-size: $baseFontSize * 1.5;
+			line-height: $baseLineHeight * 2;
+			color: $grayDark;
+			border: 0;
+			border-bottom: 1px solid #eee;
+
+			small
+			{
+				font-size: $baseLineHeight * .75;
+				color: $grayLight;
+			}
+		}
+	}
+}
+
+label,
+input,
+button,
+select,
+textarea
+{
+	// TODO: fonts
+}
+
+input,
+button,
+select,
+textarea
+{
+	// TODO: fonts
+}
+
+label,
+.label
+{
+	display: block;
+	margin-bottom: 5px;
+	color: $grayDark;
+
+	input,
+	textarea,
+	select
+	{
+		display: block;
+	}
+
+	input[type="checkbox"],
+	input[type="radio"]
+	{
+		display: inline-block;
+		margin-right: 5px;
+	}
+}
+
+input,
+textarea,
+select,
+.uneditable-input
+{
+	display: inline-block;
+	width: 210px;
+	height: $baseLineHeight;
+	padding: 4px;
+	margin-bottom: 9px;
+	font-size: $baseFontSize;
+	line-height: $baseLineHeight;
+	color: $gray;
+	border: 1px solid #ccc;
+	@include border-radius(2px);
+
+	&.tiny
+	{
+		width: 60px;
+	}
+
+	&.small
+	{
+		width: 90px;
+	}
+
+	&.medium
+	{
+		width: 150px;
+	}
+
+	&.large
+	{
+		width: 210px;
+	}
+
+	&.huge
+	{
+		width: 270px;
+	}
+
+	&.gigantic
+	{
+		width: 530px;
+	}
+}
+
+.uneditable-textarea
+{
+	width: auto;
+	height: auto;
+}
+
+input[type="image"],
+input[type="checkbox"],
+input[type="radio"]
+{
+	width: auto;
+	height: auto;
+	padding: 0;
+	margin: 3px 0;
+	*margin-top: 0;
+	line-height: normal;
+	cursor: pointer;
+	@include border-radius(0);
+	border: 0 \9;
+}
+
+input[type="image"]
+{
+	border: 0;
+}
+
+input[type="file"]
+{
+	width: auto;
+	padding: initial;
+	line-height: initial;
+	border: initial;
+	background-color: $white;
+	background-color: initial;
+	@include box-shadow(none);
+}
+
+input[type="button"],
+input[type="reset"],
+input[type="submit"]
+{
+	width: auto;
+	height: auto;
+}
+
+select,
+input[type="file"]
+{
+	height: 28px; /* In IE7, the height of the select element cannot be changed by height, only font-size */
+	*margin-top: 4px; /* For IE7, add top margin to align select with labels */
+	line-height: 28px;
+}
+
+input[type="file"]
+{
+	line-height: 18px \9;
+}
+
+select
+{
+	width: 220px;
+	background-color: $white;
+}
+
+select[multiple],
+select[size]
+{
+	height: auto;
+}
+
+input[type="image"]
+{
+	@include box-shadow(none);
+}
+
+textarea
+{
+	height: auto;
+}
+
+input[type="hidden"]
+{
+	display: none;
+}
+
+:-moz-placeholder
+{
+	color: $grayLight;
+}
+::-webkit-input-placeholder
+{
+	color: $grayLight;
+}

@@ -1,0 +1,29 @@
+body
+{
+	margin: 0;
+	font-family: $baseFontFamily;
+	font-size: $baseFontSize;
+	line-height: $baseLineHeight;
+	color: $textColor;
+	background-color: $white;
+}
+
+a
+{
+	color: $linkColor;
+	text-decoration: none;
+
+	&:hover
+	{
+		color: $linkColorHover;
+		text-decoration: underline;
+	}
+}
+
+img,
+object,
+embed
+{
+	max-width: 100%;
+	height: auto;
+}

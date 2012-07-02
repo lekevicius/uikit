@@ -1,0 +1,49 @@
+.clearfix
+{
+	@include clearfix();
+}
+
+.left
+{
+	float: left;
+}
+
+.right
+{
+	float: right;
+}
+
+.hide
+{
+	display: none;
+}
+
+.show
+{
+	display: block;
+}
+
+.invisible
+{
+	visibility: hidden;
+}
+
+.text-left
+{
+	text-align: left;
+}
+
+.text-right
+{
+	text-align: right;
+}
+
+.text-center
+{
+	text-align: center;
+}
+
+.highlight
+{
+	background: $yellow;
+}

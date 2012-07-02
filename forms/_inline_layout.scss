@@ -1,0 +1,46 @@
+form.inline
+{
+	.field,
+	.actions,
+	label,
+	input,
+	textarea,
+	select,
+	.uneditable-input
+	{
+		display: inline-block;
+		margin-bottom: 0;
+	}
+
+	input,
+	textarea,
+	select,
+	.uneditable-input
+	{
+		width: 160px;
+	}
+
+	.field
+	{
+		margin-right: 10px;
+	}
+
+	input[type="submit"],
+	input[type="button"],
+	input[type="checkbox"],
+	input[type="radio"],
+	button
+	{
+		width: auto;
+	}
+
+	.actions
+	{
+		padding: 0;
+	}
+
+	.hide
+	{
+		display: none;
+	}
+}

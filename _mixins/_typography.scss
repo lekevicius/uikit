@@ -1,0 +1,38 @@
+// FONTS
+// --------------------------------------------------
+
+// Font Stacks
+@mixin font-family-serif {
+  font-family: Georgia, "Times New Roman", Times, serif;
+}
+@mixin font-family-sans-serif {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+@mixin font-family-monospace {
+  font-family: Menlo, Monaco, "Courier New", monospace;
+}
+@mixin font-shorthand($size: $baseFontSize, $weight: normal, $lineHeight: $baseLineHeight) {
+  font-size: $size;
+  font-weight: $weight;
+  line-height: $lineHeight;
+}
+@mixin font-serif($size: $baseFontSize, $weight: normal, $lineHeight: $baseLineHeight) {
+  @include font-family-serif;
+  @include font-shorthand($size, $weight, $lineHeight);
+}
+@mixin font-sans-serif($size: $baseFontSize, $weight: normal, $lineHeight: $baseLineHeight) {
+  @include font-family-sans-serif;
+  @include font-shorthand($size, $weight, $lineHeight);
+}
+@mixin font-monospace($size: $baseFontSize, $weight: normal, $lineHeight: $baseLineHeight) {
+  @include font-family-monospace;
+  @include font-shorthand($size, $weight, $lineHeight);
+}
+
+@mixin font-size($size, $is-important: false) {
+  @if $is-important {
+    font-size: $size + px !important;
+    font-size: $size / 10 + rem !important; }
+  @else {
+    font-size: $size + px;
+    font-size: $size / 10 + rem; } }

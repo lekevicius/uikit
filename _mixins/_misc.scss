@@ -1,0 +1,118 @@
+@mixin clearfix()
+{
+  *zoom: 1;
+
+  &:before,
+  &:after
+  {
+    display: table;
+    content: "";
+  }
+
+  &:after
+  {
+    clear: both;
+  }
+}
+
+@mixin tab-focus()
+{
+  // Default
+  outline: thin dotted #333;
+
+  // Webkit
+  outline: 5px auto -webkit-focus-ring-color;
+  outline-offset: -2px;
+}
+
+@mixin center-block()
+{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@mixin ie7-inline-block()
+{
+  *display: inline; /* IE7 inline-block hack */
+  *zoom: 1;
+}
+
+@mixin ie7-restore-left-whitespace()
+{
+  *margin-left: .3em;
+
+  &:first-child
+  {
+    *margin-left: 0;
+  }
+}
+
+@mixin ie7-restore-right-whitespace()
+{
+  *margin-right: .3em;
+
+  &:last-child
+  {
+    *margin-left: 0;
+  }
+}
+
+@mixin size($height: 5px, $width: 5px)
+{
+  width: $width;
+  height: $height;
+}
+
+@mixin square($size: 5px)
+{
+  @include size($size, $size);
+}
+
+@mixin text-overflow()
+{
+  // Requires inline-block or block for proper styling
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+
+// COMPONENT MIXINS
+// --------------------------------------------------
+
+// POPOVER ARROWS
+// -------------------------
+// For tipsies and popovers
+@mixin popoverArrow-top($arrowWidth: 5px) {
+  bottom: 0;
+  left: 50%;
+  margin-left: -$arrowWidth;
+  border-left: $arrowWidth solid transparent;
+  border-right: $arrowWidth solid transparent;
+  border-top: $arrowWidth solid $black;
+}
+@mixin popoverArrow-left($arrowWidth: 5px) {
+  top: 50%;
+  right: 0;
+  margin-top: -$arrowWidth;
+  border-top: $arrowWidth solid transparent;
+  border-bottom: $arrowWidth solid transparent;
+  border-left: $arrowWidth solid $black;
+}
+@mixin popoverArrow-bottom($arrowWidth: 5px) {
+  top: 0;
+  left: 50%;
+  margin-left: -$arrowWidth;
+  border-left: $arrowWidth solid transparent;
+  border-right: $arrowWidth solid transparent;
+  border-bottom: $arrowWidth solid $black;
+}
+@mixin popoverArrow-right($arrowWidth: 5px) {
+  top: 50%;
+  left: 0;
+  margin-top: -$arrowWidth;
+  border-top: $arrowWidth solid transparent;
+  border-bottom: $arrowWidth solid transparent;
+  border-right: $arrowWidth solid $black;
+}

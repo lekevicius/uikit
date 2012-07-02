@@ -1,0 +1,120 @@
+html,
+body
+{
+	font-family: $baseFontFamily;
+}
+
+::-moz-selection
+{
+	background: #ffe660;
+	color:#444;
+	text-shadow: none;
+}
+::selection
+{
+	background: #ffe660;
+	color:#444;
+	text-shadow: none;
+}
+
+p
+{
+	margin: 0 0 $baseLineHeight / 2;
+	font-family: $baseFontFamily;
+	font-size: $baseFontSize;
+	line-height: $baseLineHeight;
+
+	small
+	{
+		font-size: $baseFontSize - 2;
+		color: $grayLight;
+	}
+
+	&.lead
+	{
+		margin-bottom: $baseLineHeight;
+		font-size: 20px;
+		font-weight: 200;
+		line-height: $baseLineHeight * 1.5;
+	}
+}
+
+hr
+{
+	margin: $baseLineHeight 0;
+	border: 0;
+	border-top: 1px solid $hrBorder;
+	border-bottom: 1px solid $white;
+}
+
+.muted
+{
+	color: $grayLight;
+}
+
+abbr,
+acronym
+{
+	font-size: 90%;
+	text-transform: uppercase;
+	border-bottom: 1px dotted #ddd;
+	cursor: help;
+}
+
+blockquote
+{
+	padding: 0 0 0 15px;
+	margin: 0 0 $baseLineHeight;
+	border-left: 5px solid $grayLighter;
+
+	p
+	{
+		margin-bottom: 0;
+		@include font-shorthand(16px,300,$baseLineHeight * 1.25);
+	}
+
+	small
+	{
+		display: block;
+		line-height: $baseLineHeight;
+		color: $grayLight;
+
+		&:before
+		{
+			content: '\2014 \00A0';
+		}
+	}
+
+	&.right
+	{
+		float: right;
+		padding-left: 0;
+		padding-right: 15px;
+		border-left: 0;
+		border-right: 5px solid $grayLighter;
+
+		p,
+		small
+		{
+			text-align: right;
+		}
+	}
+}
+
+address
+{
+	display: block;
+	margin-bottom: $baseLineHeight;
+	line-height: $baseLineHeight;
+	font-style: normal;
+}
+
+small
+{
+	font-size: 100%;
+}
+
+cite
+{
+	font-style: normal;
+}

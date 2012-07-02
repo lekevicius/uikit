@@ -1,0 +1,56 @@
+ul,
+ol
+{
+	padding: 0;
+	margin: 0 0 $baseLineHeight / 2 25px;
+
+	ul,
+	ol
+	{
+		margin-bottom: 0;
+	}
+
+	&.unstyled
+	{
+		margin-left: 0;
+		list-style: none;
+	}
+}
+
+ul
+{
+	list-style: disc;
+}
+
+ol
+{
+	list-style: decimal;
+}
+
+li
+{
+	line-height: $baseLineHeight;
+}
+
+
+
+dl
+{
+	margin-bottom: $baseLineHeight;
+
+	dt,
+	dd
+	{
+		line-height: $baseLineHeight;
+	}
+
+	dt
+	{
+		font-weight: bold;
+	}
+
+	dd
+	{
+		margin-left: $baseLineHeight / 2;
+	}
+}

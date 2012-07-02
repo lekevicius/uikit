@@ -1,0 +1,37 @@
+@mixin block-grid-columns($columns)
+{
+	$blockGridMargin: $fluidGridGutterWidth;
+	$blockGridWidth: (100% - $fluidGridGutterWidth * ($columns - 1)) / $columns - ($fluidGridGutterWidth / $columns);
+
+	margin-left: $blockGridMargin * -1;
+
+	& > li
+	{
+		margin-left: $blockGridMargin;
+		width: $blockGridWidth;
+
+		&:nth-child(#{ $columns }n+1)
+		{
+			clear: left;
+		}
+	}
+}
+
+ul[class*="block-grid"]
+{
+	display: block;
+	overflow: hidden;
+
+	& > li
+	{
+		display: block;
+		height: auto;
+		float: left;
+	}
+}
+
+.two-block-grid   { @include block-grid-columns(2); }
+.three-block-grid { @include block-grid-columns(3); }
+.four-block-grid  { @include block-grid-columns(4); }
+.five-block-grid  { @include block-grid-columns(5); }
+.six-block-grid   { @include block-grid-columns(6); }

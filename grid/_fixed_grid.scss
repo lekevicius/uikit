@@ -1,0 +1,106 @@
+$gridRowWidth: ($gridColumns * $gridColumnWidth) + ($gridGutterWidth * ($gridColumns - 1));
+
+@mixin fixed-container()
+{
+	width: $gridRowWidth;
+	margin-left: auto;
+	margin-right: auto;
+	@include clearfix();
+}
+
+@mixin fixed-grid-column()
+{
+	float: left;
+	margin-left: $gridGutterWidth;
+
+	&:first-child
+	{
+		margin-left: 0;
+	}
+}
+
+@mixin fixed-grid-columns($columns)
+{
+	width: ($gridColumnWidth * $columns) + ($gridGutterWidth * ($columns - 1));
+}
+
+@mixin fixed-grid-prepend($columns)
+{
+	margin-left: ($gridColumnWidth * $columns) + ($gridGutterWidth * ($columns + 1));
+
+	&:first-child
+	{
+		margin-left: ($gridColumnWidth * $columns) + ($gridGutterWidth * $columns);
+	}
+}
+
+@mixin fixed-grid-append($columns)
+{
+	margin-right: ($gridColumnWidth * $columns) + ($gridGutterWidth * $columns);
+
+	&:first-child
+	{
+		margin-right: ($gridColumnWidth * $columns) + ($gridGutterWidth * $columns);
+	}
+}
+
+@mixin fixed-grid-push($columns)
+{
+	left: ($gridColumnWidth * $columns) + ($gridGutterWidth * $columns);
+}
+
+@mixin fixed-grid-pull($columns)
+{
+	right: ($gridColumnWidth * $columns) + ($gridGutterWidth * $columns);
+}
+
+@mixin make-fixed-grid-row()
+{
+	width: $gridRowWidth;
+	margin: 0 auto;
+	@include clearfix;
+}
+
+@mixin make-fixed-grid-columns($columns: 1)
+{
+	@include fixed-grid-column();
+	@include fixed-grid-columns($columns);
+}
+
+@mixin generate-fixed-grid()
+{
+	.container-fixed
+	{
+		@include fixed-container();
+
+		.row
+		{
+			@include make-fixed-grid-row();
+
+			[class*="col"] { @include fixed-grid-column(); }
+			[class*="col"]+[class*='col']:last-child { float: right; }
+
+			@for $i from 1 through $gridColumns
+			{
+				.col#{$i} { @include fixed-grid-columns($i); }
+
+				@if $i < $gridColumns
+				{
+					.prepend#{$i} { @include fixed-grid-prepend($i); }
+					.append#{$i}  { @include fixed-grid-append($i);  }
+					.push#{$i}    { @include fixed-grid-push($i);    }
+					.pull#{$i}    { @include fixed-grid-pull($i);    }
+				}
+			}
+
+			.row
+			{
+				width: 100%;
+				margin: 0;
+				@include clearfix;
+			}
+		}
+	}
+}
+
+@include generate-fixed-grid();

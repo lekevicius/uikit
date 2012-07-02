@@ -1,0 +1,116 @@
+$labelWidthColumns: 2;
+$inputWidthColumns: 4;
+
+$labelWidth: ($gridColumnWidth * $labelWidthColumns) + ($gridGutterWidth * ($labelWidthColumns - 1));
+$inputWidth: ($gridColumnWidth * $inputWidthColumns) + ($gridGutterWidth * ($inputWidthColumns - 1));
+
+form.horizontal
+{
+	.field
+	{
+		margin-bottom: $baseLineHeight;
+		@include clearfix();
+
+		label,
+		.label
+		{
+			float: left;
+			width: $labelWidth;
+			padding-top: 5px;
+			text-align: right;
+
+			&.checkbox,
+			&.radio
+			{
+				float: none;
+				margin-left: $labelWidth + $gridGutterWidth;
+				width: $inputWidth;
+				text-align: left;
+			}
+		}
+
+		input,
+		select,
+		textarea,
+		.uneditable-input,
+		.controls
+		{
+			width: $inputWidth;
+			margin-left: $gridGutterWidth;
+			float: left;
+		}
+
+		.controls
+		{
+			label
+			{
+				float: none;
+				width: auto;
+				text-align: left;
+			}
+		}
+
+		input[type="checkbox"],
+		input[type="radio"]
+		{
+			width: auto;
+			margin-left: 0;
+			float: none;
+		}
+	}
+
+	legend + .field
+	{
+		margin-top: $baseLineHeight;
+		-webkit-margin-top-collapse: separate;
+	}
+
+	.controls
+	{
+		label
+		{
+			padding-left: 18px;
+
+			input[type="radio"],
+			input[type="checkbox"]
+			{
+				float: left;
+				margin-left: -18px;
+			}
+		}
+
+		&.inline
+		{
+			label
+			{
+				display: inline-block;
+				padding-top: 5px;
+				margin-bottom: 0;
+				vertical-align: middle;
+			}
+		}
+	}
+
+	.actions
+	{
+		background: #f8f8f8;
+		border-top: 1px solid #ddd;
+		padding: 14px 0 14px ($labelWidth + $gridGutterWidth);
+		@include border-radius(0 0 6px 6px);
+	}
+
+	input,
+	textarea,
+	select,
+	.help-inline,
+	.uneditable-input
+	{
+		display: inline-block;
+		margin-bottom: 0;
+	}
+
+	.hide
+	{
+		display: none;
+	}
+}

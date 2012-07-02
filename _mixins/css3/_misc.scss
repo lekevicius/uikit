@@ -1,0 +1,76 @@
+@mixin animation($values)
+{
+  -webkit-animation: $values;
+     -moz-animation: $values;
+          animation: $values;
+}
+
+@mixin background-clip($clip)
+{
+  -webkit-background-clip: $clip;
+     -moz-background-clip: $clip;
+          background-clip: $clip;
+}
+
+@mixin background-size($size)
+{
+  -webkit-background-size: $size;
+     -moz-background-size: $size;
+       -o-background-size: $size;
+          background-size: $size;
+}
+
+@mixin box-sizing($boxmodel)
+{
+  -webkit-box-sizing: $boxmodel;
+     -moz-box-sizing: $boxmodel;
+          box-sizing: $boxmodel;
+}
+
+@mixin user-select($select)
+{
+  -webkit-user-select: $select;
+     -moz-user-select: $select;
+       -o-user-select: $select;
+          user-select: $select;
+}
+
+@mixin resizable($direction: both)
+{
+  resize: $direction; // Options: horizontal, vertical, both
+  overflow: auto; // Safari fix
+}
+
+@mixin content-columns($columnCount, $columnGap: $gridColumnGutter)
+{
+  -webkit-column-count: $columnCount;
+     -moz-column-count: $columnCount;
+          column-count: $columnCount;
+
+  -webkit-column-gap: $columnGap;
+     -moz-column-gap: $columnGap;
+          column-gap: $columnGap;
+}
+
+@mixin opacity($opacity: 100)
+{
+  opacity: $opacity / 100;
+  filter: alpha(opacity=$opacity);
+}
+
+@mixin translucent-background($color: $white, $alpha: 1)
+{
+  background-color: hsla(hue($color), saturation($color), lightness($color), $alpha);
+}
+
+@mixin translucent-border($color: $white, $alpha: 1)
+{
+  border-color: hsla(hue($color), saturation($color), lightness($color), $alpha);
+  @include background-clip(padding-box);
+}
+
+@mixin font-smoothing($value: antialiased)
+{
+  -webkit-font-smoothing: $value;
+  // Values: none, antialiased (default), subpixel-antialiased
+}

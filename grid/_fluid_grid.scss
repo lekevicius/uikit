@@ -1,0 +1,137 @@
+$fluidGridBlueprintRowWidth: ($fluidGridColumns * $fluidGridBlueprintColumnWidth) + ($fluidGridBlueprintGutterWidth * ($fluidGridColumns - 1));
+$fluidGridColumnWidth: (($fluidGridBlueprintColumnWidth / 1px) / ($fluidGridBlueprintRowWidth / 1px)) * 100%;
+$fluidGridGutterWidth: (($fluidGridBlueprintGutterWidth / 1px) / ($fluidGridBlueprintRowWidth / 1px)) * 100%;
+
+@mixin fluid-container()
+{
+//	padding-left: $fluidGridBlueprintGutterWidth;
+//	padding-right: $fluidGridBlueprintGutterWidth;
+}
+
+@mixin fluid-grid-column ()
+{
+	margin-left: $fluidGridGutterWidth;
+	float: left;
+	min-height: 1px;
+	position: relative;
+
+	&:first-child
+	{
+		margin-left: 0;
+	}
+}
+
+@mixin fluid-grid-columns ($columns)
+{
+	width: ($fluidGridColumnWidth * $columns) + ($fluidGridGutterWidth * ($columns - 1));
+}
+
+@mixin fluid-grid-prepend ($columns)
+{
+	margin-left: ($fluidGridColumnWidth * $columns) + ($fluidGridGutterWidth * ($columns + 1));
+
+	&:first-child
+	{
+		margin-left: ($fluidGridColumnWidth * $columns) + ($fluidGridGutterWidth * $columns);
+	}
+}
+
+@mixin fluid-grid-append ($columns)
+{
+	margin-right: ($fluidGridColumnWidth * $columns) + ($fluidGridGutterWidth * $columns);
+
+	&:first-child
+	{
+		margin-right: ($fluidGridColumnWidth * $columns) + ($fluidGridGutterWidth * $columns);
+	}
+}
+
+@mixin fluid-grid-push ($columns)
+{
+	left: ($fluidGridColumnWidth * $columns) + ($fluidGridGutterWidth * $columns);
+}
+
+@mixin fluid-grid-pull ($columns)
+{
+	right: ($fluidGridColumnWidth * $columns) + ($fluidGridGutterWidth * $columns);
+}
+
+@mixin make-fluid-grid-row ()
+{
+	width: 100%;
+	margin: 0 auto;
+	@include clearfix;
+}
+
+@mixin make-fluid-grid-columns ($columns: 1)
+{
+	@include fluid-grid-column();
+	@include fluid-grid-columns($columns);
+}
+
+@mixin fluid-nested-grid ($parent)
+{
+	@if ($parent > 1)
+	{
+		.row
+		{
+			@include make-fluid-grid-row();
+
+			@for $i from 1 through $parent - 1
+			{
+				$hybridGridRowWidth: ($parent * $fluidGridBlueprintColumnWidth) + ($fluidGridBlueprintGutterWidth * ($parent - 1));
+				$hybridGridColumnWidth: (($fluidGridBlueprintColumnWidth / 1px) / ($hybridGridRowWidth / 1px)) * 100%;
+				$hybridGridGutterWidth: (($fluidGridBlueprintGutterWidth / 1px) / ($hybridGridRowWidth / 1px)) * 100%;
+
+				.col#{$i}
+				{
+					width: ($hybridGridColumnWidth * $i) + ($hybridGridGutterWidth * ($i - 1));
+					margin-left: $hybridGridGutterWidth;
+					float: left;
+					min-height: 1px;
+					position: relative;
+
+					&:first-child
+					{
+						margin-left: 0;
+					}
+				}
+			}
+		}
+	}
+}
+
+@mixin generate-fluid-grid()
+{
+	.container
+	{
+		@include fluid-container();
+
+		.row
+		{
+			@include make-fluid-grid-row();
+
+			[class*="col"] { @include fluid-grid-column(); }
+			[class*="col"]+[class*='col']:last-child { float: right; }
+
+			@for $i from 1 through $gridColumns
+			{
+				.col#{$i}
+				{
+					@include fluid-grid-columns($i);
+					@include fluid-nested-grid($i);
+				}
+
+				@if $i < $gridColumns
+				{
+					.prepend#{$i} { @include fluid-grid-prepend($i); }
+					.append#{$i}  { @include fluid-grid-append($i);  }
+					.push#{$i}    { @include fluid-grid-push($i);    }
+					.pull#{$i}    { @include fluid-grid-pull($i);    }
+				}
+			}
+		}
+	}
+}
+
+@include generate-fluid-grid();
